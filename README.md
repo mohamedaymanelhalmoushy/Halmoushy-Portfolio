@@ -1,119 +1,61 @@
 # Mohamed Ayman El-Halmoushy — Portfolio
 
-> **ML & Intelligent Systems Engineer** | GPA 3.79 · Rank #1 | Helwan National University
+A multi-page personal portfolio (Home, About, Experience, Projects, Achievements, Moments, Skills, Contact) with a static upper-body 3D avatar on the Home hero, loaded with Three.js.
 
-[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-00d4ff?style=for-the-badge&logo=githubpages)](https://mohamedelhalmoushy.github.io/Halmoushy-Portfolio/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mohamed-el-halmoushy/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/MohamedELHalmoushy)
+Plain HTML, CSS and JavaScript. No build step.
 
----
+## Run locally
 
-## 🚀 About
+Open `index.html` in a browser, or serve the folder:
 
-A professionally designed, fully responsive portfolio website with a deep-space AI/neural-network aesthetic. Built with pure HTML, CSS, and vanilla JS — no frameworks, no dependencies, deployable anywhere.
-
-**Design Theme:** Deep space navy + electric cyan — inspired by AI, neural networks, and intelligent systems.
-
----
-
-## 📁 File Structure
-
-```
-portfolio/
-├── index.html              ← Main single-page application
-├── css/
-│   └── style.css           ← All styles (theme, animations, responsive)
-├── js/
-│   ├── main.js             ← Navigation, scroll effects, language toggle, form
-│   └── particles.js        ← Neural network particle canvas animation
-├── assets/
-│   ├── mohamed.jpeg        ← Profile photo (replace with your own)
-│   ├── p1.webp             ← Project 1 image
-│   ├── p2.png              ← Project 2 image
-│   ├── p3.png              ← Project 3 image
-│   ├── p4.png              ← Project 4 image
-│   ├── p5.png              ← Project 5 image
-│   ├── 1C.jpeg             ← Certificate 1
-│   ├── 2C.jpeg             ← Certificate 2
-│   ├── 3C.jpeg             ← Certificate 3
-│   ├── 4C.jpeg             ← Certificate 4
-│   ├── 5C.jpeg             ← Certificate 5
-│   ├── 6C.jpeg             ← Certificate 6
-│   ├── 4.webp              ← Certificate 7
-│   ├── 32143412342341.png.webp ← Certificate 8
-│   ├── 11111.png           ← Certificate 9
-│   └── Mohamed_Ayman_CV.pdf ← Downloadable CV
-└── README.md
+```bash
+python3 -m http.server 8000
+# then visit http://localhost:8000
 ```
 
----
+## Deploy on GitHub Pages
 
-## ✨ Features
+1. Create a repository and push these files to the `main` branch.
+2. In the repository, go to **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
+4. Your site appears at `https://<your-username>.github.io/<repository-name>/`.
 
-- 🧠 **Neural Network Particle Canvas** — animated hero background
-- 🌓 **Bilingual (Arabic / English)** — full RTL support
-- 📱 **Fully Responsive** — mobile, tablet, desktop
-- 🔍 **Scroll Reveal Animations** — section-by-section reveal
-- 🖼️ **Certificate Lightbox** — click-to-expand certificates
-- ⌨️ **Typewriter Effect** — animated role titles in hero
-- 📬 **Working Contact Form** — via Formspree
-- ⚡ **Zero Dependencies** — pure HTML/CSS/JS
+## Use your own 3D model
 
----
+Put your model at `assets/model.glb`. When the site is served over http(s), it loads automatically on the Home page. The current scene shows the avatar's upper body and keeps it static.
 
-## 🛠️ Deployment on GitHub Pages
+You can also try a model without adding it to the repo: click **Load my GLB model** on the site.
 
-### Option 1: Automatic (recommended)
+## Add your photos
 
-1. Create a repo named `Halmoushy-Portfolio` (or any name)
-2. Push all files to the `main` branch
-3. Go to **Settings → Pages**
-4. Set source to **Deploy from branch** → `main` → `/ (root)`
-5. Click **Save** — your site will be live at `https://yourusername.github.io/repo-name/`
+- **Portrait:** the About section uses `assets/image about.png`.
+- **Moments:** the Moments section uses the uploaded files listed below. Add or remove paths in the `MOMENTS` array in `js/main.js` when changing galleries.
 
-### Option 2: Manual upload
+## Hardcoded assets
 
-1. Go to your GitHub repo
-2. Click **Add file → Upload files**
-3. Upload everything in this folder maintaining the directory structure
-4. Commit to `main`
+Add the following files before deploying to GitHub Pages. The filenames are already referenced by `index.html` and `js/main.js`:
 
----
+- `assets/image about.png`
+- `assets/PRESIDENT.png`
+- `assets/HNU_OFFECIAL WEB SITE.png`
+- `assets/Hackathon_1.jpg`
+- `assets/Deci_1.jpeg`, `Deci_2.jpeg`, `Deci_3.jpeg`
+- `assets/DEMI_1.jpeg` through `DEMI_8.jpeg`
+- `assets/we_training.jpg`
 
-## ⚙️ Customization
+You can add more images to a Moment by extending its `images` array in `js/main.js`.
 
-### Update Contact Form
-Replace the Formspree action URL in `index.html`:
-```html
-<form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" ...>
+## Edit content
+
+All projects, achievements, certifications, moments, skills and experience live at the top of `js/main.js` (`PROJECTS`, `ACH`, `CERTS`, `MOMENTS`, `SKILLS`, `EXPERIENCE`). Colours and fonts are CSS variables at the top of `css/style.css`.
+
+## Structure
+
 ```
-Sign up at [formspree.io](https://formspree.io) and create a new form to get your ID.
+index.html
+css/style.css
+js/main.js
+assets/        # model.glb, photos
+```
 
-### Update Photo
-Replace `assets/mohamed.jpeg` with your own photo (keep the same filename, or update the `src` in `index.html`).
-
-### Add More Projects
-Copy a `.project-card` div block in `index.html` and update the content.
-
-### Add More Certificates
-Copy a `.cert-card` div block and update the image `src` and title.
-
----
-
-## 🎨 Design System
-
-| Variable | Value | Use |
-|---|---|---|
-| `--bg-deep` | `#020b14` | Page background |
-| `--cyan-bright` | `#00d4ff` | Primary accent |
-| `--blue-accent` | `#1a6fff` | Secondary accent |
-| `--text-primary` | `#e8f4fd` | Main text |
-| `--text-secondary` | `#8fb8d0` | Body text |
-
----
-
-## 📄 License
-all copyrights reserved for Mohamed EL-Halmoushy 
----
-
-*Built by Mohamed Ayman El-Halmoushy*
+The contact form opens the visitor's email app (`mailto:`), so no backend is needed. The repository includes `assets/model.glb`; keep that file when uploading to GitHub Pages.
